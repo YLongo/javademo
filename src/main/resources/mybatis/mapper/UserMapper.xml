@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="github.io.ylongo.mybatis.chapter04.mapper.UserMapper">
+
+    <cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+    
+    <sql id="userAllField">
+      id,create_time, name, password, phone, nick_name
+    </sql>
+    
+<!--    flushCache Mapper执行后是否刷新缓存 -->
+<!--    useCache 执行该Mapper是否使用二级缓存，一级缓存无法关闭 -->
+    <select id="listAllUser" flushCache="false" useCache="true"
+            resultType="github.io.ylongo.mybatis.chapter04.entity.UserEntity">
+        select <include refid="userAllField"/>
+        from user
+    </select>
+
+</mapper>

@@ -1,0 +1,12 @@
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+    "font_size": 14,
+    "translate_tabs_to_spaces": true,
+    "save_on_focus_lost": true,
+    "default_line_ending": "unix",
+    "show_encoding": true,
+    "show_line_endings": true,
+    "find_selected_text": true,
+    "highlight_line": true
+}

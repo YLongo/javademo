@@ -1,0 +1,19 @@
+
+/bin/
+/target/
+.project
+.classpath
+.settings/
+*.class
+
+# Package Files #
+#*.jar
+*.war
+*.ear
+*.iml
+
+.idea/
+.ipynb_checkpoints
+namesAndAges.parquet
+namesAndFavColors.parquet
+hacker-news.json
