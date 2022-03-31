@@ -39,7 +39,8 @@
 [搜索引擎-信息检索实战](https://github.com/YLongo/javademo/blob/master/src/main/java/github/io/ylongo/doc/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E-%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2%E5%AE%9E%E6%88%98.md)
 
 ### JVM
-[深入理解 Java 虚拟机](https://github.com/YLongo/javademo/blob/master/src/main/java/github/io/ylongo/doc/understanding-the-jvm/understanding-the-jvm.md)
+[深入理解 Java 虚拟机2](src/main/java/github/io/ylongo/doc/understanding-the-jvm/understanding-the-jvm-2.md)  
+[深入理解 Java 虚拟机3](src/main/java/github/io/ylongo/doc/understanding-the-jvm/understanding-the-jvm-3.md)
 
 ### Git
 [git-command](https://github.com/YLongo/javademo/blob/master/src/main/java/github/io/ylongo/git/git-command.md)  
