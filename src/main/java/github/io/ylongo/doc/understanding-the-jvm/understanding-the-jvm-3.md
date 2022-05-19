@@ -464,7 +464,7 @@ Parallel Old是Parallel Scavenge收集器的老年代版本，支持多线程并
 在注重吞吐量或者处理器资源较为稀缺的场合，都可以优先考虑Parallel Scavenge加Parallel Old收集器这个组
 合
 
-![image-20220403151757568](images/Parallel Scavenge、Parallel-Old收集器运行示意图.png "Parallel Scavenge/Parallel Old收集器运行示意图")
+![image-20220403151757568](images/Parallel-Scavenge、Parallel-Old收集器运行示意图.png "Parallel Scavenge/Parallel Old收集器运行示意图")
 
 ### 3.5.6 CMS收集器
 
