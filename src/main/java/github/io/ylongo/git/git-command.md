@@ -277,11 +277,35 @@
 
     > 会产生一条提交记录
 
-47. 更新 Git bash
+47. 撤销连续的更改
+
+    `git revert begin_commit_id..end_commit_id`
+
+    `git revert -n HEAD~3..`
+
+    回滚连续3个提交，`..`表示范围，相当于`HEAD~3..HEAD`
+
+    ```bash
+    -n, --no-commit       don't automatically commit （不会自动commit）
+    -m, --mainline <parent-number>
+                              select mainline parent （当需要回滚已merge的代码时，需要被保留下来的父结点，1表示当前分支上的父节点，2表示要合并进来的分支上的父节点）
+    ```
+
+    示例：
+
+    撤销`C4`的更改，保留`C6`
+
+    `git revert -m 1 HEAD`
+
+    `C6`就是父节点1，`C4`就是父节点2
+
+    ![image-20220608130715386](images/git-revert.png)
+
+48. 更新 Git bash
 
     `git update-git-for-windows`
 
-48. 将某些提交合并到当前分支
+49. 将某些提交合并到当前分支
 
     `git cherry-pick <commitid>...`
 
@@ -299,11 +323,11 @@
 
        表示将commitidA到commitidB之间的提交，提交到当前分支，并且包含commitidA
 
-49. 将指定分支切换到某次提交上
+50. 将指定分支切换到某次提交上
 
     `git branch -f <branch> <commitid>`
 
-50. 清理尚未被追踪的文件
+51. 清理尚未被追踪的文件
 
     `git clean -df`
 
@@ -311,25 +335,25 @@
     >
     >   `-f` 表示强制
 
-51. 停止追踪远程仓库
+52. 停止追踪远程仓库
 
     `git branch --unset-upstream`
 
-52. 解除远程仓库的关联
+53. 解除远程仓库的关联
 
     `git remote remove origin`
 
-53. 查看远程仓库的信息
+54. 查看远程仓库的信息
 
     `git remote`
 
     >   `-v` 显示仓库对应的 URL
 
-54. 第一次commit之后想撤销
+55. 第一次commit之后想撤销
 
     `git update-ref -d HEAD`
-    
-55. 检查某个文件是否被ignore了
+
+56. 检查某个文件是否被ignore了
 
     `git check-ignore -v file-path`
 

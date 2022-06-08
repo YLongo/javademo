@@ -189,5 +189,46 @@ M lib/simplegit.rb
 提交完了才发现漏掉了几个文件没有提交，或者提交信息写错了。可以使用 `git commit --amend` 重新提交。
 只会将暂存区的文件提交，如果上次提交之后没有做任何修改，执行此命令只会修改提交信息。
 
+# Git分支
+
+## 变基
+
+变基（rebase）：提取在 C4 中引入的补丁和修改，然后在 C3 的基础上应用一次
+
+当前分支历史：
+
+![image-20220407110140167](images/分叉的提交历史.png)
+
+```bash
+$ git checkout experiment
+$ git rebase master
+```
+
+变基之后：
+
+![将 C4 中的修改变基到 C3 上](images/将C4中的修改变基到C3上.png "将C4中的修改变基到C3上")
+
+它的原理是：
+
+- 首先找到这两个分支的**最近共同祖先** C2
+
+  > 即当前分支 experiment、变基操作的目标基底分支 master
+
+- 然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件
+
+- 然后将当前分支指向目标基底 C3
+
+- 最后以此将之前另存为临时文件的修改依序应用
 
 
+
+然后回到 master 分支，进行一次快进合并
+
+```bash
+$ git checkout master
+$ git merge experiment
+```
+
+> 实际上不需要在`master`分支上再执行繁琐的合并操作，而是可以用`experiment`分支直接更新远程版本库的`master`分支
+>
+> 参见：[Git编程指南](http://www.worldhello.net/gotgit/03-git-harmony/040-git-branch.html#id15)

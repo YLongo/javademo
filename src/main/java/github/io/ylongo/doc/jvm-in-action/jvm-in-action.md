@@ -825,6 +825,10 @@ void HeapRegion::setup_heap_region_size(size_t initial_heap_size, size_t max_hea
 
 老年代内存使用的比例，默认最高是45%
 
+> `InitiatingHeapOccupancyPercent`在JDK8b12之前表示的是整个堆，之后表示的老年代占比
+>
+> 具体见：[关于G1收集器参数InitiatingHeapOccupancyPercent的正确认知](https://doudaxia.club/index.php/archives/212/)
+
 ##### 如何满足G1新生代的动态扩展机制？
 
 不要指定新生代的大小为一个固定值，不要直接指定`Xmn`，也不要直接只设置一个`NewRatio`，或者指定MaxNewSize = NewSize
