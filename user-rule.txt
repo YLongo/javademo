@@ -1,6 +1,43 @@
 ! Put user rules line by line in this file.
 ! See https://adblockplus.org/en/filter-cheatsheet
 
+||wikipedia.org
+||elastic.co^
+||stackoverflow.com^
+||atlassian.net^
+||openai.com^
+||sourcetreeapp.com^
+||amplitude.com^
+||weavatools.com^
+||github.dev^
+||journey.cloud^
+||jsdelivr.net^
+||jetbrains.com^
+||githubusercontent.com^
+||searchcode.com^
+||github.io^
+||apache.org^
+||microsofttranslator.com^
+||gitbooks.io^
+||githubassets.com^
+||dremio.com^
+||discourse-cdn.com^
+||amazonaws.com^
+||googleapis.com^
+||gerritcodereview.com^
+||oracle.com^
+||mybatis.org^
+||wikiwand.com^
+||ankiweb.net^
+||relay.firefox.com^
+||esri.com^
+||libgen.fun^
+||jetbra.in^
+||singlelogin.app^
+||z-lib.org^
+||github.com^
+||sourcetreeapp.com^
+||amplitude.com^
 ||weavatools.com^
 ||github.dev^
 ||journey.cloud^
