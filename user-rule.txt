@@ -1,3 +1,6 @@
+||getpostman.com^
+||javadoc.io^
+||glasp.co^
 ||imgix.net^
 ||bing.com^
 ||wikipedia.org^
