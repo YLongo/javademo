@@ -1,4 +1,4 @@
-package github.io.ylongo;
+package github.io.ylongo.ch02;
 
 public class ResourceForAllTests {
 

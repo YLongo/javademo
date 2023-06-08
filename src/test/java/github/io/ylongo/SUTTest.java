@@ -1,5 +1,7 @@
-import github.io.ylongo.ResourceForAllTests;
-import github.io.ylongo.SUT;
+package github.io.ylongo;
+
+import github.io.ylongo.ch02.ResourceForAllTests;
+import github.io.ylongo.ch02.SUT;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -37,6 +39,7 @@ class SUTTest {
     }
 
     @Test // 标注的方法都会独立执行
+    @DisplayName("😗")
     void testRegularWork() {
         boolean canReceiveRegularWork = systemUnderTest.canReceiveRegularWork();
         assertTrue(canReceiveRegularWork);

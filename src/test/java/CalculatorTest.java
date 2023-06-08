@@ -1,4 +1,4 @@
-import github.io.ylongo.Calculator;
+import github.io.ylongo.ch02.Calculator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
