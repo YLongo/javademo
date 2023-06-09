@@ -1,4 +1,4 @@
-package github.io.ylongo.ch02;
+package github.io.ylongo;
 
 public class SUT {
     private String systemName;

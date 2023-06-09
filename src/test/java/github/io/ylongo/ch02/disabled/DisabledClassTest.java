@@ -1,6 +1,6 @@
 package github.io.ylongo.ch02.disabled;
 
-import github.io.ylongo.ch02.SUT;
+import github.io.ylongo.SUT;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
