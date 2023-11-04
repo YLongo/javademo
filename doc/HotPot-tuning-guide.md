@@ -10,7 +10,7 @@
 
 
 
-# 2 Ergonomics 工效学 <a id="2_Ergonomics"></a>
+# 2 Ergonomics 工效学 <a name="2_Ergonomics"></a>
 
 工效学是 Java 虚拟机（JVM）和垃圾回收调整（如基于行为调优）提高应用程序性能的过程
 
