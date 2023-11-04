@@ -6,7 +6,7 @@
 
 > 来源 GitChat：https://gitbook.cn/gitchat/author/599a26ad8f27e07e3688eac6
 
--   [线程相关的基础知识](https://github.com/YLongo/javademo/blob/master/src/main/java/github/io/ylongo/jcpb/doc/01%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)
+-   [线程相关的基础知识](./src/main/java/github/io/ylongo/jcpb/doc/01%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)
 -   [并发编程基础晋级篇](https://github.com/YLongo/javademo/blob/master/src/main/java/github/io/ylongo/jcpb/doc/02%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80%E6%99%8B%E7%BA%A7%E7%AF%87.md)
 -   [并发编程高级篇之一](https://github.com/YLongo/javademo/blob/master/src/main/java/github/io/ylongo/jcpb/doc/03%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E9%AB%98%E7%BA%A7%E7%AF%87%E4%B9%8B%E4%B8%80.md)
 -   [并发编程高级篇之二](https://github.com/YLongo/javademo/blob/master/src/main/java/github/io/ylongo/jcpb/doc/04%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E9%AB%98%E7%BA%A7%E7%AF%87%E4%B9%8B%E4%BA%8C.md)
