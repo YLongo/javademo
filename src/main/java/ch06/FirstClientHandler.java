@@ -6,6 +6,7 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -19,7 +20,7 @@ public class FirstClientHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        log.info("{} : 客户端写入数据", new Date());
+        log.info("{} : 客户端写入数据", LocalDateTime.now());
         ByteBuf byteBuf = getByteBuf(ctx);
         ctx.channel().writeAndFlush(byteBuf);
     }
@@ -27,7 +28,7 @@ public class FirstClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf byteBuf = (ByteBuf) msg;
-        log.info("{} : 客户端读到数据 -> {}", new Date(), byteBuf.toString(StandardCharsets.UTF_8));
+        log.info("{} : 客户端读到数据 -> {}", LocalDateTime.now(), byteBuf.toString(StandardCharsets.UTF_8));
     }
 
     private ByteBuf getByteBuf(ChannelHandlerContext ctx) {
