@@ -469,6 +469,7 @@ public abstract class AbstractChannel extends DefaultAttributeMap implements Cha
 
             AbstractChannel.this.eventLoop = eventLoop;
 
+            // 判断当前线程是否是NioEventLoop对应的线程
             if (eventLoop.inEventLoop()) {
                 register0(promise);
             } else {
