@@ -145,6 +145,7 @@ public final class NioEventLoop extends SingleThreadEventLoop {
             throw new NullPointerException("selectStrategy");
         }
         provider = selectorProvider;
+        // 创建一个Selector
         selector = openSelector();
         selectStrategy = strategy;
     }
@@ -240,6 +241,11 @@ public final class NioEventLoop extends SingleThreadEventLoop {
         return provider;
     }
 
+    /**
+     * MPSC队列，多生产者单消费者队列
+     * 单消费者指某个NioEventLoop对应的线程
+     * 多生产者就是此NioEventLoop对应的线程之外的线程，通常情况下就是我们的业务线程
+     */
     @Override
     protected Queue<Runnable> newTaskQueue(int maxPendingTasks) {
         // This event loop never calls takeTask()

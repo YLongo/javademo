@@ -93,6 +93,9 @@ public abstract class SingleThreadEventExecutor extends AbstractScheduledEventEx
         PROPERTIES_UPDATER = propertiesUpdater;
     }
 
+    /**
+     * {@link io.netty.channel.nio.NioEventLoop#newTaskQueue}
+     */
     private final Queue<Runnable> taskQueue;
 
     private volatile Thread thread;
@@ -176,6 +179,7 @@ public abstract class SingleThreadEventExecutor extends AbstractScheduledEventEx
         this.addTaskWakesUp = addTaskWakesUp;
         this.maxPendingTasks = Math.max(16, maxPendingTasks);
         this.executor = ObjectUtil.checkNotNull(executor, "executor");
+        // 创建一个MPSC队列
         taskQueue = newTaskQueue(this.maxPendingTasks);
         rejectedExecutionHandler = ObjectUtil.checkNotNull(rejectedHandler, "rejectedHandler");
     }

@@ -192,20 +192,20 @@ public final class DefaultChannelId implements ChannelId {
     private void init() {
         int i = 0;
 
-        // machineId
+        // machineId 机器id（mac地址）
         System.arraycopy(MACHINE_ID, 0, data, i, MACHINE_ID_LEN);
         i += MACHINE_ID_LEN;
 
-        // processId
+        // processId （进程id）
         i = writeInt(i, PROCESS_ID);
 
-        // sequence
+        // sequence（自增编号）
         i = writeInt(i, nextSequence.getAndIncrement());
 
-        // timestamp (kind of)
+        // timestamp (kind of) 时间戳
         i = writeLong(i, Long.reverse(System.nanoTime()) ^ System.currentTimeMillis());
 
-        // random
+        // random 随机数
         int random = ThreadLocalRandom.current().nextInt();
         hashCode = random;
         i = writeInt(i, random);

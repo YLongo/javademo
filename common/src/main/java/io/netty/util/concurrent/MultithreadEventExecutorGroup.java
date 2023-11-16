@@ -72,10 +72,14 @@ public abstract class MultithreadEventExecutorGroup extends AbstractEventExecuto
             throw new IllegalArgumentException(String.format("nThreads: %d (expected: > 0)", nThreads));
         }
 
+        // 线程执行器
+        // 每次都会创建一个线程来执行
+        // io.netty.util.concurrent.FastThreadLocalThread
         if (executor == null) {
             executor = new ThreadPerTaskExecutor(newDefaultThreadFactory());
         }
 
+        // 创建NioEventLoop => 对应线程池中的线程
         children = new EventExecutor[nThreads];
 
         for (int i = 0; i < nThreads; i ++) {
@@ -108,6 +112,8 @@ public abstract class MultithreadEventExecutorGroup extends AbstractEventExecuto
             }
         }
 
+        // 创建线程选择器
+        // 确定每次如何从线程池中选择一个线程，也就是每次如何从NioEventLoopGroup中选择一个NioEventLoop
         chooser = chooserFactory.newChooser(children);
 
         final FutureListener<Object> terminationListener = new FutureListener<Object>() {
@@ -128,7 +134,9 @@ public abstract class MultithreadEventExecutorGroup extends AbstractEventExecuto
         readonlyChildren = Collections.unmodifiableSet(childrenSet);
     }
 
+    
     protected ThreadFactory newDefaultThreadFactory() {
+        // getClass() == NioEventLoopGroup.class
         return new DefaultThreadFactory(getClass());
     }
 

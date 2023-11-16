@@ -30,6 +30,10 @@ public class DefaultThreadFactory implements ThreadFactory {
     private static final AtomicInteger poolId = new AtomicInteger();
 
     private final AtomicInteger nextId = new AtomicInteger();
+
+    /**
+     * @see #DefaultThreadFactory(String, boolean, int, ThreadGroup)
+     */
     private final String prefix;
     private final boolean daemon;
     private final int priority;
@@ -59,15 +63,24 @@ public class DefaultThreadFactory implements ThreadFactory {
         this(poolName, false, priority);
     }
 
+    /**
+     * @param poolType {@link io.netty.channel.nio.NioEventLoopGroup}
+     * @param daemon {@link #DefaultThreadFactory(java.lang.Class, int)}
+     */
     public DefaultThreadFactory(Class<?> poolType, boolean daemon, int priority) {
         this(toPoolName(poolType), daemon, priority);
     }
 
+    /**
+     * @param poolType {@link io.netty.channel.nio.NioEventLoopGroup}
+     * @return nioEventLoopGroup
+     */
     public static String toPoolName(Class<?> poolType) {
         if (poolType == null) {
             throw new NullPointerException("poolType");
         }
 
+        // NioEventLoopGroup
         String poolName = StringUtil.simpleClassName(poolType);
         switch (poolName.length()) {
             case 0:
@@ -75,7 +88,9 @@ public class DefaultThreadFactory implements ThreadFactory {
             case 1:
                 return poolName.toLowerCase(Locale.US);
             default:
+                // 如果第一个字母是大写，第二个字母是小写，则将第一个字母小写之后返回
                 if (Character.isUpperCase(poolName.charAt(0)) && Character.isLowerCase(poolName.charAt(1))) {
+                    // nioEventLoopGroup
                     return Character.toLowerCase(poolName.charAt(0)) + poolName.substring(1);
                 } else {
                     return poolName;
@@ -92,6 +107,7 @@ public class DefaultThreadFactory implements ThreadFactory {
                     "priority: " + priority + " (expected: Thread.MIN_PRIORITY <= priority <= Thread.MAX_PRIORITY)");
         }
 
+        // nioEventLoopGroup-全局自增id-
         prefix = poolName + '-' + poolId.incrementAndGet() + '-';
         this.daemon = daemon;
         this.priority = priority;
@@ -105,6 +121,8 @@ public class DefaultThreadFactory implements ThreadFactory {
 
     @Override
     public Thread newThread(Runnable r) {
+        // 第几个NioEventLoopGroup的第几个NioEventLoop
+        // NioEventLoopGroup-1-3
         Thread t = newThread(new DefaultRunnableDecorator(r), prefix + nextId.incrementAndGet());
         try {
             if (t.isDaemon()) {
@@ -126,6 +144,9 @@ public class DefaultThreadFactory implements ThreadFactory {
         return t;
     }
 
+    /**
+     * @param name bioEventLoopGroup-1-1 
+     */
     protected Thread newThread(Runnable r, String name) {
         return new FastThreadLocalThread(threadGroup, r, name);
     }

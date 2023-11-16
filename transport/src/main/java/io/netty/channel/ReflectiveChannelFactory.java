@@ -25,6 +25,13 @@ public class ReflectiveChannelFactory<T extends Channel> implements ChannelFacto
 
     private final Class<? extends T> clazz;
 
+    /**
+     * clazz就是通过ServerBootstrap.channel()传入的class
+     * 
+     * @param clazz {@link io.netty.channel.socket.nio.NioServerSocketChannel}
+     *              {@link io.netty.bootstrap.AbstractBootstrap#channel(Class)}
+     * 
+     */
     public ReflectiveChannelFactory(Class<? extends T> clazz) {
         if (clazz == null) {
             throw new NullPointerException("clazz");

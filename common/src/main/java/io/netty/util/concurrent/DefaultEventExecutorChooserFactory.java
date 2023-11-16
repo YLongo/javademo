@@ -32,6 +32,7 @@ public final class DefaultEventExecutorChooserFactory implements EventExecutorCh
     @SuppressWarnings("unchecked")
     @Override
     public EventExecutorChooser newChooser(EventExecutor[] executors) {
+        // 判断线程数是否是2的幂
         if (isPowerOfTwo(executors.length)) {
             return new PowerOfTowEventExecutorChooser(executors);
         } else {
@@ -53,6 +54,7 @@ public final class DefaultEventExecutorChooserFactory implements EventExecutorCh
 
         @Override
         public EventExecutor next() {
+            // 通过与运算的方式进行遍历
             return executors[idx.getAndIncrement() & executors.length - 1];
         }
     }
@@ -67,6 +69,7 @@ public final class DefaultEventExecutorChooserFactory implements EventExecutorCh
 
         @Override
         public EventExecutor next() {
+            // 通过累加取余的方法进行遍历
             return executors[Math.abs(idx.getAndIncrement() % executors.length)];
         }
     }

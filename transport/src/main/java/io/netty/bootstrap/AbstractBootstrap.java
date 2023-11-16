@@ -318,7 +318,6 @@ public abstract class AbstractBootstrap<B extends AbstractBootstrap<B, C>, C ext
         try {
             // 新建一个channel
             channel = channelFactory.newChannel();
-            
             // 初始化channel
             init(channel);
         } catch (Throwable t) {
@@ -410,10 +409,16 @@ public abstract class AbstractBootstrap<B extends AbstractBootstrap<B, C>, C ext
         return Collections.unmodifiableMap(copied);
     }
 
+    /**
+     * @see #option(ChannelOption, Object) 
+     */
     final Map<ChannelOption<?>, Object> options0() {
         return options;
     }
 
+    /**
+     * @see #attr(AttributeKey, Object) 
+     */
     final Map<AttributeKey<?>, Object> attrs0() {
         return attrs;
     }
